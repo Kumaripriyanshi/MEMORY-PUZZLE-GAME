@@ -1,8 +1,7 @@
 import MainGameModule
 import pygame
-import random
 import sys
-from datetime import datetime
+# from datetime import datetime
 import time
 
 # import ImageClass
@@ -23,7 +22,7 @@ class WelcomeScreen():
         
     def StartwelcomeScreen(self):
         """This method will show the welcome screen i.e starting window of the game"""
-        step=5
+        # step=5
        
         self=WelcomeScreen(self.window,self.images,self.GameSounds)
         image =self.images["pi"]
@@ -173,7 +172,7 @@ class WelcomeScreen():
 def ShowLevelScreen(self,images,window,GameSounds,call,CarX):
         """Responsible for dislaying levels on the window """
         # Level1Image
-        carousel=[images["Level1Image"],images["Level1Image"]]
+        carousel=[images["Level1Image"],images["Level2Image"]]
         mainGameScreen=MainGameModule.MainGame(window,images,GameSounds)
 
         clickIndx=0

@@ -17,7 +17,6 @@ class MainGame():
         imageHeight=int(410/3)   #136
        
         imageList=[self.images["piece6"],self.images["piece4"],self.images["piece8"],self.images["piece1"],self.images["piece2"],self.images["piece7"],self.images["piece3"],self.images["piece5"],self.images["piece9"]]
-        
         desired_Position_Of_imageList=[self.images["piece1"],self.images["piece4"],self.images["piece7"],self.images["piece2"],self.images["piece5"],self.images["piece8"],self.images["piece3"],self.images["piece6"],self.images["piece9"]]
         mainl=[[self.images["piece6"],self.images["piece4"],self.images["piece8"]],[self.images["piece1"],self.images["piece2"],self.images["piece7"]],[self.images["piece3"],self.images["piece5"],self.images["piece9"]]]
         dimension_of_images={}
@@ -43,10 +42,9 @@ class MainGame():
                     pygame.display.update()
                     dimension_of_images[img]=(j*imageWidth+3,i*imageHeight+tempy)
                     position_of_images[img]=k
-                    # self.checkWinner(position_of_images,desired_Position_Of_imageList)
                     k+=1
   
-        
+        print(position_of_images)
         while True:
             font=pygame.font.SysFont("Times New Roman",32)
             pygame.draw.rect(self.window,(0,0,0),[0,0,400,50])
@@ -56,7 +54,7 @@ class MainGame():
          
  
             Time = font.render("Time:", True, (255,255,255))
-            Level = font.render("Level: 1", True, (0,0,0))
+            Level = font.render("Level: 0", True, (0,0,0))
            
             self.window.blit(self.images["bulb"],(2,6))
 
@@ -88,32 +86,44 @@ class MainGame():
                         print(clicked)
                         clicked_image=self.findClickedImages(clicked,dimension_of_images,imageWidth,imageHeight)
                         posOfspace=self.findSpacePos(position_of_images)
-                        self.ClickedImageCanSwap(clicked_image,posOfspace,position_of_images,dimension_of_images)
-                        self.checkWinner(position_of_images,desired_Position_Of_imageList)
-
+                        self.ClickedImageCanSwap(clicked_image,posOfspace,position_of_images,dimension_of_images,desired_Position_Of_imageList)
+                       
                         if HintClicked:
                             self.showNumbers(dimension_of_images,desired_Position_Of_imageList)
                         if (clicked[0] >=3 and clicked[0]<=110) and  (clicked[1]>=590 and clicked[1]<=643):
-                            self.content()
+                            n=temppy=0
+                            for i in range(0,3):  
+                                    if i==0:temppy=150
+                                    if i==1:temppy=147
+                                    if i==2:temppy=144 
+                                    for j in range(0,3):
+                                        
+                    
+                                        img=imageList[n]
+                                        self.window.blit(img,(j*imageWidth+3,i*imageHeight+temppy)) 
+                                        pygame.display.update()
+
+                                        dimension_of_images[img]=(j*imageWidth+3,i*imageHeight+temppy)
+                                        position_of_images[img]=n
+                                        n+=1
+                          
                         elif (clicked[0] >=146 and clicked[0]<=254) and  (clicked[1]>=591 and clicked[1]<=644 ):
                             welcomeWindowModule.ShowLevelScreen(self,self.images,self.window,self.GameSounds,"mainGame",43)
                         
                         elif (clicked[0] >=284 and clicked[0]<=392) and  (clicked[1]>=592 and clicked[1]<=644 ):
-                            k=tempy=0
+                            n=temppy=0
                             for i in range(0,3):  
-                                    if i==0:tempy=150
-                                    if i==1:tempy=147
-                                    if i==2:tempy=144 
+                                    if i==0:temppy=150
+                                    if i==1:temppy=147
+                                    if i==2:temppy=144 
                                     for j in range(0,3):
-                                        
-                    
-                                        img=imageList[k]
-                                        self.window.blit(img,(j*imageWidth+3,i*imageHeight+tempy)) 
+                                        img=imageList[n]
+                                        self.window.blit(img,(j*imageWidth+3,i*imageHeight+temppy)) 
                                         pygame.display.update()
 
-                                        dimension_of_images[img]=(j*imageWidth+3,i*imageHeight+tempy)
-                                        position_of_images[img]=k
-                                        k+=1
+                                        dimension_of_images[img]=(j*imageWidth+3,i*imageHeight+temppy)
+                                        position_of_images[img]=n
+                                        n+=1
                                 
                             self.solvePuzzle(mainl,dimension_of_images,imageList)
                             time.sleep(2)
@@ -130,18 +140,15 @@ class MainGame():
                                 
 
     def checkWinner(self,position_of_images,desired_Position_Of_imageList):
-        flagpost=0
        
-        for index,item in enumerate(position_of_images):
-            if item==desired_Position_Of_imageList[index]:
-                flagpost=1
-                print("winner!! winner!!")
-            else:
-                flagpost=0
-                break
+        count=0
+        for i in range(9):
+            if i==position_of_images[desired_Position_Of_imageList[i]]:
+                count+=1
+
         data=""
         dt=0
-        if flagpost==1:
+        if count==9:
             with open("levels.txt","r") as r:
                 data=r.read()
                 data=data.split("\n")
@@ -167,7 +174,7 @@ class MainGame():
                         elif event.type==pygame.KEYDOWN and event.key == pygame.K_SPACE:
                             self.content()
                         elif event.type==pygame.MOUSEBUTTONDOWN:
-                            self.GameSounds["click"].play()
+                            
                             clicked=event.pos
                             print(clicked)
                             if (clicked[0] >=70 and clicked[0]<=169) and  (clicked[1]>=551 and clicked[1]<=610 ):
@@ -204,7 +211,7 @@ class MainGame():
 
     def findClickedImages(self,ClickedPos,dimension_of_images,imageWidth,imageHeight):
         for i in dimension_of_images.items():
-            if (ClickedPos[0]>=i[1][0] and ClickedPos[0]<=i[1][0]+130) and(ClickedPos[1]>=i[1][1] and ClickedPos[1]<=i[1][1]+132):
+            if (ClickedPos[0]>=i[1][0] and ClickedPos[0]<=i[1][0]+131) and(ClickedPos[1]>=i[1][1] and ClickedPos[1]<=i[1][1]+136):
                 return i[0]
 
 
@@ -216,7 +223,7 @@ class MainGame():
 
 
     
-    def ClickedImageCanSwap(self,clicked_image,posOfspace,position_of_images,dimension_of_images):
+    def ClickedImageCanSwap(self,clicked_image,posOfspace,position_of_images,dimension_of_images,desired_Position_Of_imageList):
         pos_ofClickedImg=None
         for i in position_of_images.items():
             if i[0]==clicked_image:
@@ -233,6 +240,7 @@ class MainGame():
             temp=dimension_of_images[self.images["piece9"]]
             dimension_of_images[self.images["piece9"]]=dimension_of_images[clicked_image]
             dimension_of_images[clicked_image]=temp
+            # self.GameSounds["slide"].play()
             self.window.blit(clicked_image,dimension_of_images[clicked_image])
             self.window.blit(self.images["piece9"],dimension_of_images[self.images["piece9"]])
 
@@ -241,6 +249,8 @@ class MainGame():
             position_of_images[clicked_image]=temp
 
             pygame.display.update()
+            self.checkWinner(position_of_images,desired_Position_Of_imageList)
+
     
 
     def showNumbers(self,dimension_of_images,desired_Position_Of_imageList):

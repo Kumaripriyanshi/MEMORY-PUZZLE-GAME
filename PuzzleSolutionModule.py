@@ -8,7 +8,7 @@ END = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
 
 desired_Position_Of_imageList=[]
 imageList=[]
-dimension_of_images=[]
+dimension_of_images={}
 window=None
 mainl=[]
 
@@ -21,7 +21,6 @@ def updateList(array,mlm):
     mm=mlm[len(mlm)-1]
     if len(mlm)-2>=0:
         mm=mlm[len(mlm)-2]
- 
     doneSwap=[]
     for a in range(len(array)):
         for b in range(len(array)):
@@ -52,10 +51,7 @@ def printPuzzle(array):
   
     for a in range(len(array)):
         for i in range(len(array)):
-           
-            
             img=mainl[a][i]
-         
             window.blit(img,(dimension_of_images[img])) 
             # print(dimension_of_images[img])
             pygame.display.update()
@@ -156,13 +152,17 @@ def main(puzzle):
 
 def start(mail,dime,wind,List):
     global mainl
+    mainl=[]
     mainl=mail
     global dimension_of_images
+    dimension_of_images={}
     dimension_of_images=dime
     global window
+    window=None
     window=wind
     
     global imageList
+    imageList=[]
     imageList=List
     # print(mainl)
     br = main([[8, 2, 6],
@@ -170,15 +170,5 @@ def start(mail,dime,wind,List):
                [7, 5, 0]])
    
     for b in br:
-        if b['dir'] != '':
-            letter = ''
-            if b['dir'] == 'U':
-                letter = 'UP'
-            elif b['dir'] == 'R':
-                letter = "RIGHT"
-            elif b['dir'] == 'L':
-                letter = 'LEFT'
-            elif b['dir'] == 'D':
-                letter = 'DOWN'
         printPuzzle(b['node'])
     

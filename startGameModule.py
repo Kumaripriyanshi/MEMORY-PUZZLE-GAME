@@ -22,6 +22,8 @@ SetOfimages={
         "piece9":pygame.transform.scale(pygame.image.load("PROJECT_SEM_4/IMAGES/piece9.png").convert_alpha(),(130,132)),
     
         "Level1Image":pygame.image.load("PROJECT_SEM_4/IMAGES/Level1Img.png").convert_alpha(),
+        "Level2Image":pygame.image.load("PROJECT_SEM_4/IMAGES/Level2Img.png").convert_alpha(),
+
      
         "pi":pygame.image.load("PROJECT_SEM_4/IMAGES/play.png").convert_alpha(),
         "Lev":pygame.image.load("PROJECT_SEM_4/IMAGES/Lev.png").convert_alpha(),
@@ -51,7 +53,7 @@ SetOfimages={
 
    }
 pygame.mixer.init()
-GameSounds={'click': pygame.mixer.Sound('PROJECT_SEM_4/SOUNDS/click.wav')}
+GameSounds={'click': pygame.mixer.Sound('PROJECT_SEM_4/SOUNDS/click.wav'),'slide': pygame.mixer.Sound('PROJECT_SEM_4/SOUNDS/slide.wav')}
 screen=WelcomeScreen(window,SetOfimages,GameSounds)
 if __name__=="__main__":
     pygame.init()
@@ -61,4 +63,4 @@ if __name__=="__main__":
         screen.StartwelcomeScreen()
         # pygame.quit()
         # sys.exit()
-    
+
