@@ -94,14 +94,14 @@ class WelcomeScreen():
                 elif event.type==pygame.MOUSEBUTTONDOWN:
                     clicked = event.pos
                     self.GameSounds["click"].play()
-                    print(clicked)
+                    # print(clicked)
                   
                     if (action[0]>85 and action[0]<321 ) and (action[1]>391 and action[1]<434): 
                         self.mainGameScreen.content()
                     
                     elif (action[0]>85 and action[0]<321 ) and (action[1]>468 and action[1]<512):
                         Action=ShowLevelScreen(self,self.images,self.window,self.GameSounds,__name__,43)
-                        print("level")
+                        # print("level")
                         # return
                         if Action=="back":
                             self.StartwelcomeScreen()
@@ -238,7 +238,7 @@ def ShowLevelScreen(self,images,window,GameSounds,call,CarX):
                 elif event.type==pygame.MOUSEBUTTONDOWN:
                     GameSounds["click"].play()
                     clicked = event.pos
-                    print("cl",clicked)
+                    # print("cl",clicked)
                     if (clicked[0] >=0 and clicked[0]<=53) and  (clicked[1]>=0 and clicked[1]<=41 ):
                         if call=="__main__":return "back" 
                         else:

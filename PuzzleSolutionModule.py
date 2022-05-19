@@ -39,7 +39,7 @@ def updateList(array,mlm):
         mainl[a][b]=mainl[x][y]
         mainl[x][y]=temp1
         pygame.display.update()
-        time.sleep(0.3)            
+        time.sleep(0.2)            
 
         
 
@@ -72,17 +72,17 @@ class Node:
 
 
 def get_pos(currentState, element):
-    for row in range(len(currentState)):
-        if element in currentState[row]:
-            return (row, currentState[row].index(element))
+    for i in range(len(currentState)):
+        if element in currentState[i]:
+            return (i, currentState[i].index(element))
 
 
 def euclidianDist(currentState):
     cost = 0
-    for row in range(len(currentState)):
-        for col in range(len(currentState[0])):
-            pos = get_pos(END, currentState[row][col])
-            cost += abs(row - pos[0]) + abs(col - pos[1])
+    for i in range(len(currentState)):
+        for j in range(len(currentState[0])):
+            pos = get_pos(END, currentState[i][j])
+            cost += abs(i - pos[0]) + abs(j - pos[1])
     return cost
 
 
@@ -111,7 +111,7 @@ def getBestNode(openSet):
     return bestNode
 
 
-def SmallestPath(closedSet):
+def ShortestPath(closedSet):
     node = closedSet[str(END)]
     branch = list()
 
@@ -138,7 +138,7 @@ def main(puzzle):
         closed_set[str(test_node.currentNode)] = test_node
 
         if test_node.currentNode == END:
-            return SmallestPath(closed_set)
+            return ShortestPath(closed_set)
 
         adj_node = getAdjNode(test_node)
         for node in adj_node:
@@ -160,6 +160,8 @@ def start(mail,dime,wind,List):
     global window
     window=None
     window=wind
+    global listOfPastARrryas
+    listOfPastARrryas=[]
     
     global imageList
     imageList=[]

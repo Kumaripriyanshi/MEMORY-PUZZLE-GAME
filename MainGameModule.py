@@ -44,7 +44,7 @@ class MainGame():
                     position_of_images[img]=k
                     k+=1
   
-        print(position_of_images)
+        # print(position_of_images)
         while True:
             font=pygame.font.SysFont("Times New Roman",32)
             pygame.draw.rect(self.window,(0,0,0),[0,0,400,50])
@@ -83,7 +83,7 @@ class MainGame():
                     if event.type==pygame.MOUSEBUTTONDOWN:
                         self.GameSounds["click"].play()
                         clicked=event.pos
-                        print(clicked)
+                        # print(clicked)
                         clicked_image=self.findClickedImages(clicked,dimension_of_images,imageWidth,imageHeight)
                         posOfspace=self.findSpacePos(position_of_images)
                         self.ClickedImageCanSwap(clicked_image,posOfspace,position_of_images,dimension_of_images,desired_Position_Of_imageList)
@@ -126,7 +126,7 @@ class MainGame():
                                         n+=1
                                 
                             self.solvePuzzle(mainl,dimension_of_images,imageList)
-                            time.sleep(2)
+                            time.sleep(1)
                             self.GameOver()
      
 
@@ -176,7 +176,7 @@ class MainGame():
                         elif event.type==pygame.MOUSEBUTTONDOWN:
                             
                             clicked=event.pos
-                            print(clicked)
+                            # print(clicked)
                             if (clicked[0] >=70 and clicked[0]<=169) and  (clicked[1]>=551 and clicked[1]<=610 ):
                                 import P1
                             if (clicked[0] >=231 and clicked[0]<=578) and  (clicked[1]>=551 and clicked[1]<=610 ):
