@@ -21,11 +21,13 @@ Welcome to my Memory Puzzle Game project. This game is designed to challenge pla
 
 ## Screenshots
 ## Home Page
-![s1](https://github.com/Kumaripriyanshi/Blogging-Website/assets/90835349/5869366a-6b87-4194-b477-aba418cd92c1)
-## Game Start
-![s2](https://github.com/Kumaripriyanshi/Blogging-Website/assets/90835349/2816c004-7063-4530-827d-207e2883baa6)
-## Levels 
-![s3](https://github.com/Kumaripriyanshi/Blogging-Website/assets/90835349/9b4cd895-d4fe-44d8-96ca-355d3b5db9fa)
+![s1](https://github.com/Kumaripriyanshi/MEMORY-PUZZLE-GAME/assets/90835349/25502622-4823-4487-86c3-ec8994f55ff5)
+## Levels
+![s2](https://github.com/Kumaripriyanshi/MEMORY-PUZZLE-GAME/assets/90835349/e3d53251-dbce-41c3-ab17-ee9cdfd80305)
+##  Game Start
+![s3](https://github.com/Kumaripriyanshi/MEMORY-PUZZLE-GAME/assets/90835349/c906ed62-2741-49e3-838a-43d881622d0c)
 ## Game End
-![s4](https://github.com/Kumaripriyanshi/Blogging-Website/assets/90835349/41afc87e-3ab8-4d91-9e17-9e5a697ed582)
-![s5](https://github.com/Kumaripriyanshi/Blogging-Website/assets/90835349/81e25f21-8b19-413d-b973-8f0d234f004c)
+![s4](https://github.com/Kumaripriyanshi/MEMORY-PUZZLE-GAME/assets/90835349/f019246a-35f3-48e1-8266-33305327a07a)
+
+
+
